@@ -17,3 +17,11 @@ A full-stack business management application.
 
 ## Status
 Currently in development.
+
+## Development Goals
+
+- [x] Initialize Git repository
+- [x] Connect GitHub repository
+- [ ] Build dashboard interface
+- [ ] Add employee management
+- [ ] Connect MySQL database
