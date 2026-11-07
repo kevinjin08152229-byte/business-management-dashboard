@@ -1,6 +1,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import Sidebar from './components/Sidebar.vue'
+import StatCard from './components/StatCard.vue'
 
 const stats = ref([
   {
@@ -42,14 +44,14 @@ const transactions = ref([
   { id: '#TRX-004', customer: 'Sophia Lee', amount: '$95.00', status: 'Cancelled' },
 ])
 
-const menuItems = [
-  'Dashboard',
-  'Sales',
-  'Employees',
-  'Inventory',
-  'Reports',
-  'Settings',
-]
+// const menuItems = [
+//   'Dashboard',
+//   'Sales',
+//   'Employees',
+//   'Inventory',
+//   'Reports',
+//   'Settings',
+// ]
 </script>
 
 <template>
@@ -58,25 +60,7 @@ const menuItems = [
     <div class="flex min-h-screen">
 
       <!-- Sidebar -->
-      <aside class="hidden w-64 shrink-0 bg-slate-900 p-6 text-white md:block">
-
-        <h1 class="mb-10 text-2xl font-bold">
-          BizManager
-        </h1>
-
-        <nav class="space-y-2">
-          <a
-            v-for="item in menuItems"
-            :key="item"
-            href="#"
-            class="block rounded-lg px-4 py-3 text-slate-300 transition hover:bg-slate-700 hover:text-white"
-            :class="{ 'bg-blue-600 text-white': item === 'Dashboard' }"
-          >
-            {{ item }}
-          </a>
-        </nav>
-
-      </aside>
+     <Sidebar />
 
       <!-- Main content -->
       <main class="min-w-0 flex-1 p-6 md:p-8">
@@ -105,8 +89,15 @@ const menuItems = [
 
         <!-- Statistics -->
         <section class="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-
-          <div
+          <StatCard 
+            v-for="stat in stats"
+            :key="stat.title"
+            :title="stat.title"
+            :value="stat.value"
+            :change="stat.change"
+            :icon="stat.icon"
+          />
+          <!-- <div
             v-for="stat in stats"
             :key="stat.title"
             class="rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
@@ -125,7 +116,7 @@ const menuItems = [
             <p class="mt-2 text-sm font-medium text-emerald-600">
               {{ stat.change }} this month
             </p>
-          </div>
+          </div> -->
 
         </section>
 
