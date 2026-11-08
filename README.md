@@ -25,3 +25,5 @@ Currently in development.
 - [ ] Build dashboard interface
 - [ ] Add employee management
 - [ ] Connect MySQL database
+
+## check Alice
